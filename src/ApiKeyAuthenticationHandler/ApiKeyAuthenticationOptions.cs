@@ -77,6 +77,7 @@ namespace Dnmh.Security.ApiKeyAuthentication.ApiKeyAuthenticationHandler
         /// </summary>
         public string AuthorizationSchemeInHeader { get; set; } = "Bearer";
 
+        /// <inheritdoc/>
         public override void Validate()
         {
             base.Validate();
