@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 
-namespace Dnmh.Security.ApiKeyAuthentication.ApiKeyAuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 
 /// <summary>
 /// Validateor for <see cref="ApiKeyAuthenticationOptions"/>

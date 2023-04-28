@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Authentication;
 
-namespace Dnmh.Security.ApiKeyAuthentication.ApiKeyAuthenticationHandler
+namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler
 {
     /// <summary>
     /// Scheme option for api key authentication.
