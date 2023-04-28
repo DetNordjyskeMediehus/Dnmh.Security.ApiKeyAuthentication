@@ -1,6 +1,6 @@
 ﻿using System.Security.Claims;
 
-namespace Dnmh.Security.ApiKeyAuthentication.ApiKeyAuthenticationHandler
+namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler
 {
     /// <summary>
     /// Interface for the api key authentication service

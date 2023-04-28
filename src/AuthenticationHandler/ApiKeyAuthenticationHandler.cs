@@ -7,7 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Net.Http.Headers;
 using System.Text.Encodings.Web;
 
-namespace Dnmh.Security.ApiKeyAuthentication.ApiKeyAuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 
 /// <summary>
 /// Handles Api Key authentication, by checking the request header and request query parameters for occurrences of the api key (depending on <see cref="ApiKeyAuthenticationOptions"/>)
@@ -25,12 +25,18 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
         IApiKeyAuthenticationService authenticationService)
         : base(options, logger, encoder, clock)
     {
-        options.CurrentValue.Validate();
         _authenticationService = authenticationService;
     }
 
     /// <inheritdoc/>
-    protected new ApiKeyAuthenticationEvents Events { get => (ApiKeyAuthenticationEvents)base.Events; set => base.Events = value; }
+    protected override Task InitializeHandlerAsync()
+    {
+        Options.Validate();
+        return base.InitializeHandlerAsync();
+    }
+
+    /// <inheritdoc/>
+    protected new ApiKeyAuthenticationEvents? Events { get => (ApiKeyAuthenticationEvents?)base.Events; set => base.Events = value; }
 
     /// <inheritdoc/>
     protected override Task<object> CreateEventsAsync() => Task.FromResult<object>(new ApiKeyAuthenticationEvents());
@@ -46,7 +52,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
                 return await FailAuthentication(new FailedAuthenticationException("Missing api key"));
             }
 
-            if (Options.AllowApiKeyInQuery && !TryExtractFromQuery(Request, out apiKey) && apiKey is null)
+            if (apiKey is null && Options.AllowApiKeyInQuery && TryExtractFromQuery(Request, out apiKey) && apiKey is null)
             {
                 return await FailAuthentication(new FailedAuthenticationException("Missing api key"));
             }
@@ -63,7 +69,10 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
                 return await FailAuthentication(new FailedAuthenticationException("Invalid api key"));
             }
 
-            await Events.OnAuthenticationSuccess(result);
+            if (Events is not null)
+            {
+                await Events.OnAuthenticationSuccess(result);
+            }
             var ticket = new AuthenticationTicket(result, Scheme.Name);
             return AuthenticateResult.Success(ticket);
         }
@@ -123,7 +132,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
                 return false;
             }
 
-            headerValue = request.Headers[Options.HeaderKey];
+            headerValue = request.Headers[Options.HeaderKey]!;
         }
 
 
@@ -134,7 +143,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
     {
         if (request.Query.ContainsKey(Options.QueryKey))
         {
-            queryValue = request.Query[Options.QueryKey];
+            queryValue = request.Query[Options.QueryKey]!;
             return true;
         }
 
@@ -144,7 +153,10 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
 
     private async Task<AuthenticateResult> FailAuthentication(Exception ex)
     {
-        await Events.OnAuthenticationFailed(ex);
+        if (Events is not null)
+        {
+            await Events.OnAuthenticationFailed(ex);
+        }
         return AuthenticateResult.Fail(ex.Message);
     }
 }

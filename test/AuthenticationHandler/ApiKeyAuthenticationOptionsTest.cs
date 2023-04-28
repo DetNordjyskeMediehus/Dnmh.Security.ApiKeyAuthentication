@@ -1,8 +1,8 @@
-using Dnmh.Security.ApiKeyAuthentication.ApiKeyAuthenticationHandler;
+using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 using FluentAssertions;
 using FluentValidation;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Test.ApiKeyAuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication.Test.AuthenticationHandler;
 
 public class ApiKeyAuthenticationOptionsTest
 {
