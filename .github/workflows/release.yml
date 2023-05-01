@@ -5,9 +5,7 @@ name: .NET
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "releases/**" ]
 
 jobs:
   build:
@@ -26,3 +24,8 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
+    - name: Pack
+      run: dotnet pack
+    - name: Release
+      run: dotnet nuget push Dnmh.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
+      
