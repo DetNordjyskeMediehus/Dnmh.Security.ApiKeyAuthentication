@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Internal;
 
 /// <summary>
-/// Validateor for <see cref="ApiKeyAuthenticationOptions"/>
+/// Validator for <see cref="ApiKeyAuthenticationOptions"/>
 /// </summary>
 internal class ApiKeyAuthenticationOptionsValidator : AbstractValidator<ApiKeyAuthenticationOptions>
 {
