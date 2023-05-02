@@ -10,9 +10,9 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/Dnmh.Security.ApiKeyAuthentication</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
     <Title>.Net ApiKey Authentication</Title>
     <Version>1.0.0</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
