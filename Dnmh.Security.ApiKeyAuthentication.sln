@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication.Test", "Tests\Dnmh.Security.ApiKeyAuthentication.Test.csproj", "{DFEF603C-60C8-41B7-A3D5-0B470800A4C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication.Sample", "Sample\Dnmh.Security.ApiKeyAuthentication.Sample.csproj", "{4D31192C-0339-43C1-B174-DC9B1E4535A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication.Sample", "Samples\Dnmh.Security.ApiKeyAuthentication.Sample.csproj", "{4D31192C-0339-43C1-B174-DC9B1E4535A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{F7255BAF-8084-453D-8BAF-950A2081361C}"
 EndProject
