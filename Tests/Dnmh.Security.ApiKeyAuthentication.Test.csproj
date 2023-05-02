@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\Dnmh.Security.ApiKeyAuthentication.csproj" />
+    <ProjectReference Include="..\Source\Dnmh.Security.ApiKeyAuthentication.csproj" />
   </ItemGroup>
 
 </Project>
