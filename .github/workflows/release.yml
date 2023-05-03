@@ -21,11 +21,11 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Pack
-      run: dotnet pack --verbosity detailed
+      run: dotnet pack --configuration Release
     - name: Release
-      run: dotnet nuget push ./src/bin/Release/Dnmh.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Source/bin/Release/Dnmh.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
       
