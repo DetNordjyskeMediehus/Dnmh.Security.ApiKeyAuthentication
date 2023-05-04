@@ -61,7 +61,7 @@ public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     public bool UseAuthorizationHeaderKey { get; set; } = false;
 
     /// <summary>
-    /// If <c>true</c>, the authentication scheme name given in <see cref="ApiKeyAuthenticationExtensions.AddApiKeyAuthentication{TAuthService}(AuthenticationBuilder, string)"/> is used as Authorization header scheme.
+    /// If <c>true</c>, the authentication scheme name given in <see cref="ApiKeyAuthenticationExtensions.AddApiKeyAuthentication{TAuthService}(AuthenticationBuilder, string, Action{ApiKeyAuthenticationOptions}, Func{IServiceProvider, TAuthService}?)"/> is used as Authorization header scheme.
     /// Requires that <see cref="AllowApiKeyInRequestHeader"/> and <see cref="UseAuthorizationHeaderKey"/> are both <c>true</c>.
     /// If this is set to <c>true</c>, then the value in <see cref="AuthorizationSchemeInHeader"/> is ignored.
     /// Default is <c>false</c>

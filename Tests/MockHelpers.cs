@@ -40,7 +40,7 @@ internal static class MockHelpers
 
     public static ApiKeyAuthenticationHandler CreateApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions> options, bool apiKeyValidationResult = true)
     {
-        var mockService = new Mock<SimpleApiKeyAuthenticationService>();
+        var mockService = new Mock<SimpleApiKeyAuthenticationServiceBase>();
         mockService.Protected().Setup<bool>("ValidateKey", ItExpr.IsAny<string>()).Returns(apiKeyValidationResult);
 
         var mockLogger = new Mock<ILogger>();

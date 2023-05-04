@@ -6,52 +6,31 @@ namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 /// <summary>
 /// Extension methods for the <see cref="AuthenticationBuilder"/>
 /// </summary>
-public static class ApiKeyAuthenticationExtensions
+public static partial class ApiKeyAuthenticationExtensions
 {
     /// <summary>
-    /// Adds a default authentication scheme named <c>"ApiKey"</c> and registers the <see cref="ApiKeyAuthenticationHandler"/> as the authentication handler.
-    /// </summary>
-    /// <typeparam name="TAuthService">The implementing class of interface <see cref="IApiKeyAuthenticationService"/></typeparam>
-    /// <param name="builder">The <see cref="AuthenticationBuilder"/></param>
-    public static ApiKeyAuthenticationBuilder AddApiKeyAuthentication<TAuthService>(this AuthenticationBuilder builder)
-        where TAuthService : class, IApiKeyAuthenticationService =>
-        builder.AddApiKeyAuthentication<TAuthService>("ApiKey", _ => { });
-
-    /// <summary>
-    /// Adds a given authentication scheme name and registers the <see cref="ApiKeyAuthenticationHandler"/> as the authentication handler.
-    /// </summary>
-    /// <typeparam name="TAuthService">The implementing class of interface <see cref="IApiKeyAuthenticationService"/></typeparam>
-    /// <param name="builder">The <see cref="AuthenticationBuilder"/></param>
-    /// <param name="authenticationScheme">The authentication scheme name</param>
-    public static ApiKeyAuthenticationBuilder AddApiKeyAuthentication<TAuthService>(this AuthenticationBuilder builder, string authenticationScheme)
-        where TAuthService : class, IApiKeyAuthenticationService =>
-        builder.AddApiKeyAuthentication<TAuthService>(authenticationScheme, _ => { });
-
-    /// <summary>
-    /// Adds a default authentication scheme named <c>"ApiKey"</c> and registers the <see cref="ApiKeyAuthenticationHandler"/> as the authentication handler.
-    /// </summary>
-    /// <typeparam name="TAuthService">The implementing class of interface <see cref="IApiKeyAuthenticationService"/></typeparam>
-    /// <param name="builder">The <see cref="AuthenticationBuilder"/></param>
-    /// <param name="configureOptions">The action used to configure options</param>
-    public static ApiKeyAuthenticationBuilder AddApiKeyAuthentication<TAuthService>(this AuthenticationBuilder builder, Action<ApiKeyAuthenticationOptions> configureOptions)
-        where TAuthService : class, IApiKeyAuthenticationService =>
-        builder.AddApiKeyAuthentication<TAuthService>("ApiKey", configureOptions);
-
-    /// <summary>
     /// Adds a given authentication scheme name and registers the <see cref="ApiKeyAuthenticationHandler"/> as the authentication handler.
     /// </summary>
     /// <typeparam name="TAuthService">The implementing class of interface <see cref="IApiKeyAuthenticationService"/></typeparam>
     /// <param name="builder">The <see cref="AuthenticationBuilder"/></param>
     /// <param name="authenticationScheme">The authentication scheme name</param>
     /// <param name="configureOptions">The action used to configure options</param>
-    public static ApiKeyAuthenticationBuilder AddApiKeyAuthentication<TAuthService>(this AuthenticationBuilder builder, string authenticationScheme, Action<ApiKeyAuthenticationOptions> configureOptions)
+    /// <param name="serviceImplementationFactory">Optional implementation factory for the registration of <typeparamref name="TAuthService"/></param>
+    public static ApiKeyAuthenticationBuilder AddApiKeyAuthentication<TAuthService>(this AuthenticationBuilder builder, string authenticationScheme, Action<ApiKeyAuthenticationOptions> configureOptions, Func<IServiceProvider, TAuthService>? serviceImplementationFactory = null)
         where TAuthService : class, IApiKeyAuthenticationService
     {
         ArgumentNullException.ThrowIfNull(nameof(builder));
         ArgumentNullException.ThrowIfNull(nameof(authenticationScheme));
         ArgumentNullException.ThrowIfNull(nameof(configureOptions));
 
-        builder.Services.AddTransient<IApiKeyAuthenticationService, TAuthService>();
+        if (serviceImplementationFactory == null)
+        {
+            builder.Services.AddTransient<IApiKeyAuthenticationService, TAuthService>();
+        }
+        else
+        {
+            builder.Services.AddTransient<IApiKeyAuthenticationService, TAuthService>(serviceImplementationFactory);
+        }
 
         builder.AddScheme<ApiKeyAuthenticationOptions, ApiKeyAuthenticationHandler>(
             authenticationScheme, configureOptions);
