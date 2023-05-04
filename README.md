@@ -21,7 +21,8 @@ To use this library, follow these steps:
 1. In your `Startup.cs` file, add the following code to the `ConfigureServices` method:
 
 ```csharp
-services.AddApiKeyAuthentication<ApiKeyAuthenticationService>()
+services.AddAuthentication("ApiKey")
+        .AddApiKeyAuthentication("MySecretApiKey")
         .AddSwaggerAuthorization("Description");
 ```
 
