@@ -108,11 +108,11 @@ namespace MyApp
     }
 }
 
-public class ApiKeyAuthenticationService : IApiKeyAuthenticationService
+public class ApiKeyAuthenticationService : SimpleApiKeyAuthenticationServiceBase
 {
-    public bool ValidateApiKey(string apiKey)
+    public bool Validate(ValidationContext context)
     {
-        return apiKey == "YOUR_API_KEY";
+        return context.ApiKey == "YOUR_API_KEY";
     }
 }
 ```

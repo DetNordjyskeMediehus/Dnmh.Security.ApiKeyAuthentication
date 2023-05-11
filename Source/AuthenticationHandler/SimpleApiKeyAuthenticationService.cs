@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 
 namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 
@@ -9,24 +10,24 @@ namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 public abstract class SimpleApiKeyAuthenticationServiceBase : IApiKeyAuthenticationService
 {
     /// <inheritdoc/>
-    public Task<ClaimsPrincipal?> ValidateAsync(string apiKey)
+    public Task<ClaimsPrincipal?> ValidateAsync(ValidationContext context)
     {
         ClaimsPrincipal? claimsPrinciple = null;
 
-        if (ValidateKey(apiKey))
+        if (Validate(context))
         {
-            claimsPrinciple = new ClaimsPrincipal(new ClaimsIdentity("ApiKey"));
+            claimsPrinciple = new ClaimsPrincipal(new ClaimsIdentity(context.Scheme.Name));
         }
 
         return Task.FromResult(claimsPrinciple);
     }
 
     /// <summary>
-    /// Validates the given <paramref name="apiKey"/>.
+    /// Validates the given <paramref name="context"/>.
     /// </summary>
-    /// <param name="apiKey">The api key to validate</param>
+    /// <param name="context">The context for the validation, where the api key that needs validation also can be found through <see cref="ValidationContext.ApiKey"/></param>
     /// <returns>True if the given api key is valid. False if not.</returns>
-    protected abstract bool ValidateKey(string apiKey);
+    protected abstract bool Validate(ValidationContext context);
 }
 
 /// <summary>
@@ -49,5 +50,5 @@ public class SimpleApiKeyAuthenticationService : SimpleApiKeyAuthenticationServi
     }
 
     /// <inheritdoc/>
-    protected override bool ValidateKey(string apiKey) => _validApiKey == apiKey;
+    protected override bool Validate(ValidationContext context) => _validApiKey == context.ApiKey;
 }

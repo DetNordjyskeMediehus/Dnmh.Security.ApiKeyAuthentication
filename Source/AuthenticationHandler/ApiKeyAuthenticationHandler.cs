@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authentication;
+﻿using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -62,7 +63,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
                 return AuthenticateResult.NoResult();
             }
 
-            var result = await _authenticationService.ValidateAsync(apiKey!);
+            var result = await _authenticationService.ValidateAsync(new ValidationContext(Context, Scheme, Options, apiKey!));
 
             if (result is null)
             {
@@ -71,7 +72,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
 
             if (Events is not null)
             {
-                await Events.OnAuthenticationSuccess(result);
+                await Events.OnAuthenticationSuccess(new AuthenticationSuccessContext(Context, Scheme, Options, result));
             }
             var ticket = new AuthenticationTicket(result, Scheme.Name);
             return AuthenticateResult.Success(ticket);
@@ -155,7 +156,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
     {
         if (Events is not null)
         {
-            await Events.OnAuthenticationFailed(ex);
+            await Events.OnAuthenticationFailed(new AuthenticationFailedContext(Context, Scheme, Options, ex));
         }
         return AuthenticateResult.Fail(ex.Message);
     }

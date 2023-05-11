@@ -1,4 +1,5 @@
 ﻿using System.Security.Claims;
+using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 
 namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 
@@ -10,7 +11,7 @@ public interface IApiKeyAuthenticationService
     /// <summary>
     /// Validates a given api key.
     /// </summary>
-    /// <param name="apiKey">The api key to validate</param>
+    /// <param name="context">The context for the validation, where the api key that needs validation also can be found through <see cref="ValidationContext.ApiKey"/></param>
     /// <returns>A non-null <see cref="ClaimsPrincipal"/> indicating success or null indicating failure</returns>
-    Task<ClaimsPrincipal?> ValidateAsync(string apiKey);
+    Task<ClaimsPrincipal?> ValidateAsync(ValidationContext context);
 }
