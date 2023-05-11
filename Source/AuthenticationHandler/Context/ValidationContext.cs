@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Http;
 namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 
 /// <summary>
-/// The context associated with authentication success
+/// The context associated with validiting the api key.
 /// </summary>
 public class ValidationContext : BaseContext<ApiKeyAuthenticationOptions>
 {
