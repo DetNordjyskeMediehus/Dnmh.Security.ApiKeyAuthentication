@@ -1,4 +1,5 @@
 ﻿using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -41,7 +42,7 @@ internal static class MockHelpers
     public static ApiKeyAuthenticationHandler CreateApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions> options, bool apiKeyValidationResult = true)
     {
         var mockService = new Mock<SimpleApiKeyAuthenticationServiceBase>();
-        mockService.Protected().Setup<bool>("ValidateKey", ItExpr.IsAny<string>()).Returns(apiKeyValidationResult);
+        mockService.Protected().Setup<bool>("Validate", ItExpr.IsAny<ValidationContext>()).Returns(apiKeyValidationResult);
 
         var mockLogger = new Mock<ILogger>();
         var mockLoggerFactory = new Mock<ILoggerFactory>();
