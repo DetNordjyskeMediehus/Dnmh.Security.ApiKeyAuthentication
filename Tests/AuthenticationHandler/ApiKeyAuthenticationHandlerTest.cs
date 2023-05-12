@@ -91,7 +91,30 @@ public class ApiKeyAuthenticationHandlerTest
     }
 
     [Fact]
-    public async Task TestOptionsWithAuthorizationHeaderKeyNoBearerWillFail()
+    public async Task TestOptionsWithAuthorizationHeaderAndCustomSchemeKeyButWrongSchemeShouldFail()
+    {
+        // Arrange
+        var optionsMock = MockHelpers.CreateMockOptionsMonitor<ApiKeyAuthenticationOptions>(options =>
+        {
+            options.AllowApiKeyInQuery = false;
+            options.AllowApiKeyInRequestHeader = true;
+            options.UseAuthorizationHeaderKey = true;
+            options.AuthorizationSchemeInHeader = "ApiKey";
+        });
+        var handler = MockHelpers.CreateApiKeyAuthenticationHandler(optionsMock.Object);
+        var mockHttpContext = MockHelpers.CreateMockHttpContextWithRequestHeaders(new Dictionary<string, StringValues> { { HeaderNames.Authorization, "Bearer key" } });
+        await handler.InitializeWithSchemeNameAsync(mockHttpContext.Object);
+
+        // Act
+        var result = await handler.AuthenticateAsync();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Succeeded.Should().BeFalse();
+    }
+
+    [Fact]
+    public async Task TestOptionsWithAuthorizationHeaderKeyNoBearerShouldFail()
     {
         // Arrange
         var optionsMock = MockHelpers.CreateMockOptionsMonitor<ApiKeyAuthenticationOptions>(options =>
@@ -127,6 +150,23 @@ public class ApiKeyAuthenticationHandlerTest
         // Assert
         result.Should().NotBeNull();
         result.Succeeded.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task TestDefaultOptionsWrongQueryKeyShouldFail()
+    {
+        // Arrange
+        var optionsMock = MockHelpers.CreateMockOptionsMonitor<ApiKeyAuthenticationOptions>();
+        var handler = MockHelpers.CreateApiKeyAuthenticationHandler(optionsMock.Object);
+        var mockHttpContext = MockHelpers.CreateMockHttpContextWithRequestQueryParams(new Dictionary<string, StringValues> { { "jwt", "key" } });
+        await handler.InitializeWithSchemeNameAsync(mockHttpContext.Object);
+
+        // Act
+        var result = await handler.AuthenticateAsync();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Succeeded.Should().BeFalse();
     }
 
     [Fact]
