@@ -86,7 +86,7 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
     /// <inheritdoc/>
     protected override async Task HandleChallengeAsync(AuthenticationProperties properties)
     {
-        Response.Headers["WWW-Authenticate"] = Scheme.Name;
+        Response.Headers[HeaderNames.WWWAuthenticate] = Scheme.Name;
         await base.HandleChallengeAsync(properties);
     }
 
@@ -115,14 +115,15 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
                 return false;
             }
 
-            headerValue = authenticationHeaderValue.Parameter;
-
             var schemeName = Options.UseSchemeNameInAuthorizationHeader ? Scheme.Name : Options.AuthorizationSchemeInHeader;
             if (!schemeName.Equals(authenticationHeaderValue.Scheme, StringComparison.OrdinalIgnoreCase))
             {
                 // Not correct scheme authentication header
+                headerValue = default;
                 return false;
             }
+            
+            headerValue = authenticationHeaderValue.Parameter;
         }
         else
         {
@@ -135,7 +136,6 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
 
             headerValue = request.Headers[Options.HeaderKey]!;
         }
-
 
         return true;
     }
