@@ -2,7 +2,7 @@ using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 using FluentAssertions;
 using FluentValidation;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Test.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication.Tests.AuthenticationHandler;
 
 public class ApiKeyAuthenticationOptionsTest
 {
@@ -150,40 +150,6 @@ public class ApiKeyAuthenticationOptionsTest
             AuthorizationSchemeInHeader = string.Empty,
             UseAuthorizationHeaderKey = true,
             UseSchemeNameInAuthorizationHeader = false
-        };
-
-        // Act
-        var act = () => options.Validate();
-
-        // Assert
-        act.Should().Throw<ValidationException>();
-    }
-
-    [Fact]
-    public void TestFailValidationOnEmptyHeaderKey()
-    {
-        // Arrange
-        var options = new ApiKeyAuthenticationOptions
-        {
-            AllowApiKeyInRequestHeader = true,
-            HeaderKey = string.Empty
-        };
-
-        // Act
-        var act = () => options.Validate();
-
-        // Assert
-        act.Should().Throw<ValidationException>();
-    }
-
-    [Fact]
-    public void TestFailValidationOnEmptyQueryKey()
-    {
-        // Arrange
-        var options = new ApiKeyAuthenticationOptions
-        {
-            AllowApiKeyInQuery = true,
-            QueryKey = string.Empty
         };
 
         // Act

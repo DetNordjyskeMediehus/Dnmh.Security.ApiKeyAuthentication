@@ -9,7 +9,7 @@ using Moq;
 using Moq.Protected;
 using System.Text.Encodings.Web;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Test;
+namespace Dnmh.Security.ApiKeyAuthentication.Tests;
 internal static class MockHelpers
 {
     public static Mock<IOptionsMonitor<T>> CreateMockOptionsMonitor<T>(Action<T>? configureOptions = null)
