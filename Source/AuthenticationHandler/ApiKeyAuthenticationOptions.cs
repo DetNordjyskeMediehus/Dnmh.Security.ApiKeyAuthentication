@@ -9,6 +9,16 @@ namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
 /// </summary>
 public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
 {
+    /// <summary>
+    /// The default value for <see cref="QueryKeys"/> if none are added.
+    /// </summary>
+    public const string DefaultQueryKey = "apikey";
+
+    /// <summary>
+    /// The default value for <see cref="HeaderKeys"/> if none are added.
+    /// </summary>
+    public const string DefaultHeaderKey = "X-API-KEY";
+
     /// <inheritdoc/>
     public new ApiKeyAuthenticationEvents? Events
     {
@@ -29,29 +39,35 @@ public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     public bool AllowApiKeyInRequestHeader { get; set; } = true;
 
     /// <summary>
-    /// Get or set the key used for the api key, when provided as a query parameter. 
-    /// Default is <c>apikey</c>
+    /// Get or set the allowed keys used for the api key, when provided as a query parameter. 
+    /// If no keys are added and <see cref="AllowApiKeyInQuery"/> is <c>true</c>, then the value of <see cref="DefaultQueryKey"/> is added automatically to the set.
     /// </summary>
+    /// <remarks>
+    /// If more than one key in the query matches keys in the allowed set of <see cref="QueryKeys"/>, then all of the matched keys in the query are used for validation. 
+    /// </remarks>
     /// <example>
-    /// Example of header:
-    /// <code>&lt;HeaderKey&gt;: abcdef12345</code>
+    /// Example of query:
+    /// <code>&lt;QueryKey&gt;=abcdef12345</code>
     /// </example>
-    public string QueryKey { get; set; } = "apikey";
+    public ISet<string> QueryKeys { get; set; } = new HashSet<string>();
 
     /// <summary>
-    /// Get or set the key used for the api key, when provided as a request header parameter. 
-    /// Default is <c>X-API-KEY</c>
+    /// Get or set the allowed keys used for the api key, when provided as a request header parameter. 
+    /// If no keys are added and <see cref="AllowApiKeyInRequestHeader"/> is <c>true</c>, then the value of <see cref="DefaultHeaderKey"/> is added automatically to the set.
     /// </summary>
+    /// <remarks>
+    /// If more than one key in the headers matches keys in the allowed set of <see cref="HeaderKeys"/>, then all of the matched keys in the headers are used for validation. 
+    /// </remarks>
     /// <example>
-    /// Example of header, if the <see cref="HeaderKey"/> is <c>X-API-KEY</c>:
+    /// Example of header, if the <see cref="HeaderKeys"/> contains <c>X-API-KEY</c>:
     /// <code>X-API-KEY: abcdef12345</code>
     /// </example>
-    public string HeaderKey { get; set; } = "X-API-KEY";
+    public ISet<string> HeaderKeys { get; set; } = new HashSet<string>();
 
     /// <summary>
     /// If <c>true</c>, then the standard <c>Authorization</c> header key is used in combination with <see cref="AuthorizationSchemeInHeader"/>. 
     /// Requires that <see cref="AllowApiKeyInRequestHeader"/> is <c>true</c>.
-    /// If this is set to <c>true</c>, then the value in <see cref="HeaderKey"/> is ignored.
+    /// If this is set to <c>true</c>, then the values in <see cref="HeaderKeys"/> is ignored.
     /// Default is <c>false</c>
     /// </summary>
     /// <example>

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33502.453
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication", "Source\Dnmh.Security.ApiKeyAuthentication.csproj", "{D351F140-C932-4E94-93BA-223EDD531E30}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication.Test", "Tests\Dnmh.Security.ApiKeyAuthentication.Test.csproj", "{DFEF603C-60C8-41B7-A3D5-0B470800A4C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication.Tests", "Tests\Dnmh.Security.ApiKeyAuthentication.Tests.csproj", "{DFEF603C-60C8-41B7-A3D5-0B470800A4C5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnmh.Security.ApiKeyAuthentication.Sample", "Samples\Dnmh.Security.ApiKeyAuthentication.Sample.csproj", "{4D31192C-0339-43C1-B174-DC9B1E4535A0}"
 EndProject
