@@ -23,7 +23,7 @@ namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Internal
         public void PostConfigure(string? name, SwaggerGenOptions options)
         {
             var parameterLocation = _authenticationOptions.AllowApiKeyInQuery ? ParameterLocation.Query : ParameterLocation.Header;
-            var keyName = parameterLocation == ParameterLocation.Query ? _authenticationOptions.QueryKeys.First() : _authenticationOptions.HeaderKeys.First();
+            var keyName = parameterLocation == ParameterLocation.Query ? _authenticationOptions.QueryKeys.First().Name : _authenticationOptions.HeaderKeys.First().Name;
             var scheme = _authenticationOptions.UseSchemeNameInAuthorizationHeader ? _swaggerSchemeOptions.AuthenticationScheme : _authenticationOptions.AuthorizationSchemeInHeader;
             // Setup the security definition
             options.AddSecurityDefinition(keyName, new OpenApiSecurityScheme

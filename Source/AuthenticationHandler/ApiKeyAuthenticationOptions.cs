@@ -12,12 +12,12 @@ public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     /// <summary>
     /// The default value for <see cref="QueryKeys"/> if none are added.
     /// </summary>
-    public const string DefaultQueryKey = "apikey";
+    public static readonly Key DefaultQueryKey = new("apikey", true);
 
     /// <summary>
     /// The default value for <see cref="HeaderKeys"/> if none are added.
     /// </summary>
-    public const string DefaultHeaderKey = "X-API-KEY";
+    public static readonly Key DefaultHeaderKey = new("X-API-KEY", true);
 
     /// <inheritdoc/>
     public new ApiKeyAuthenticationEvents? Events
@@ -49,7 +49,7 @@ public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     /// Example of query:
     /// <code>&lt;QueryKey&gt;=abcdef12345</code>
     /// </example>
-    public ISet<string> QueryKeys { get; set; } = new HashSet<string>();
+    public ISet<Key> QueryKeys { get; set; } = new HashSet<Key>();
 
     /// <summary>
     /// Get or set the allowed keys used for the api key, when provided as a request header parameter. 
@@ -62,7 +62,7 @@ public class ApiKeyAuthenticationOptions : AuthenticationSchemeOptions
     /// Example of header, if the <see cref="HeaderKeys"/> contains <c>X-API-KEY</c>:
     /// <code>X-API-KEY: abcdef12345</code>
     /// </example>
-    public ISet<string> HeaderKeys { get; set; } = new HashSet<string>();
+    public ISet<Key> HeaderKeys { get; set; } = new HashSet<Key>();
 
     /// <summary>
     /// If <c>true</c>, then the standard <c>Authorization</c> header key is used in combination with <see cref="AuthorizationSchemeInHeader"/>. 

@@ -69,6 +69,28 @@ public class ApiKeyAuthenticationHandlerTest
     }
 
     [Fact]
+    public async Task TestOptionsWithCaseInsensitiveCustomHeaderKeysSuccessfully()
+    {
+        // Arrange
+        var optionsMock = MockHelpers.CreateMockOptionsMonitor<ApiKeyAuthenticationOptions>(options =>
+        {
+            options.AllowApiKeyInQuery = false;
+            options.AllowApiKeyInRequestHeader = true;
+            options.HeaderKeys.Add("X-ApiKey", false);
+        });
+        var handler = MockHelpers.CreateApiKeyAuthenticationHandler(optionsMock.Object);
+        var mockHttpContext = MockHelpers.CreateMockHttpContextWithRequestHeaders(new Dictionary<string, StringValues> { { "x-apikey", "key" } });
+        await handler.InitializeWithSchemeNameAsync(mockHttpContext.Object);
+
+        // Act
+        var result = await handler.AuthenticateAsync();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Succeeded.Should().BeTrue();
+    }
+
+    [Fact]
     public async Task TestOptionsWithMultipleCustomHeaderKeysButNoneMatchShouldFail()
     {
         // Arrange
@@ -276,4 +298,47 @@ public class ApiKeyAuthenticationHandlerTest
         result.Should().NotBeNull();
         result.Succeeded.Should().BeFalse();
     }
+
+    [Fact]
+    public async Task TestOptionsWithCaseInsensitiveCustomQueryKeySuccessfully()
+    {
+        // Arrange
+        var optionsMock = MockHelpers.CreateMockOptionsMonitor<ApiKeyAuthenticationOptions>(options =>
+        {
+            options.QueryKeys.Add("mykey", false);
+        });
+        var handler = MockHelpers.CreateApiKeyAuthenticationHandler(optionsMock.Object);
+        var mockHttpContext = MockHelpers.CreateMockHttpContextWithRequestQueryParams(new Dictionary<string, StringValues> { { "MYKEY", "key" } });
+        await handler.InitializeWithSchemeNameAsync(mockHttpContext.Object);
+
+        // Act
+        var result = await handler.AuthenticateAsync();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Succeeded.Should().BeTrue();
+    }
+
+    [Fact]
+    public async Task TestOptionsWithMultipleCaseInsensitiveCustomQueryKeySuccessfully()
+    {
+        // Arrange
+        var optionsMock = MockHelpers.CreateMockOptionsMonitor<ApiKeyAuthenticationOptions>(options =>
+        {
+            options.QueryKeys.Add("mykey", false);
+            options.QueryKeys.Add("otherkey", true);
+        });
+        var handler = MockHelpers.CreateApiKeyAuthenticationHandler(optionsMock.Object);
+        var mockHttpContext = MockHelpers.CreateMockHttpContextWithRequestQueryParams(new Dictionary<string, StringValues> { { "MYKEY", "key" }, { "OTHERKEY", "key" } });
+        await handler.InitializeWithSchemeNameAsync(mockHttpContext.Object);
+
+        // Act
+        var result = await handler.AuthenticateAsync();
+
+        // Assert
+        result.Should().NotBeNull();
+        result.Succeeded.Should().BeTrue();
+    }
+
+
 }
