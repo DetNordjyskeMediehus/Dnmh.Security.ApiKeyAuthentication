@@ -24,9 +24,8 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
         IOptionsMonitor<ApiKeyAuthenticationOptions> options,
         ILoggerFactory logger,
         UrlEncoder encoder,
-        ISystemClock clock,
         IApiKeyAuthenticationService authenticationService)
-        : base(options, logger, encoder, clock)
+        : base(options, logger, encoder)
     {
         _authenticationService = authenticationService;
     }
