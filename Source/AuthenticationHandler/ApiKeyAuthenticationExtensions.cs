@@ -19,6 +19,10 @@ public static partial class ApiKeyAuthenticationExtensions
     public static ApiKeyAuthenticationBuilder AddApiKeyAuthentication<TAuthService>(this AuthenticationBuilder builder, string authenticationScheme, Action<ApiKeyAuthenticationOptions> configureOptions, Func<IServiceProvider, TAuthService>? serviceImplementationFactory = null)
         where TAuthService : class, IApiKeyAuthenticationService
     {
+        ArgumentNullException.ThrowIfNull(builder);
+        ArgumentNullException.ThrowIfNull(authenticationScheme);
+        ArgumentNullException.ThrowIfNull(configureOptions);
+
         if (serviceImplementationFactory == null)
         {
             builder.Services.AddTransient<IApiKeyAuthenticationService, TAuthService>();
