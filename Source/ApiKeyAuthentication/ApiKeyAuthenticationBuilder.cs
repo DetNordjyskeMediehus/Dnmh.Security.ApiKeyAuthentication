@@ -1,16 +1,4 @@
-﻿
-/* Unmerged change from project 'ApiKeyAuthentication (net9.0)'
-Before:
-using DNMH.Security.ApiKeyAuthentication.Internal;
-After:
-using Dnmh;
-using DNMH.Security;
-using DNMH.Security.ApiKeyAuthentication;
-using DNMH.Security.ApiKeyAuthentication;
-using DNMH.Security.ApiKeyAuthentication.AuthenticationHandler;
-using DNMH.Security.ApiKeyAuthentication.Internal;
-*/
-using DNMH.Security.ApiKeyAuthentication.Internal;
+﻿using DNMH.Security.ApiKeyAuthentication.Internal;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
