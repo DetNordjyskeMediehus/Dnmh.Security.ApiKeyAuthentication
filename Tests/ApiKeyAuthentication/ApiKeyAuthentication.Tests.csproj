@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
-	  <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
+    <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
     <TargetFramework>net9.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
