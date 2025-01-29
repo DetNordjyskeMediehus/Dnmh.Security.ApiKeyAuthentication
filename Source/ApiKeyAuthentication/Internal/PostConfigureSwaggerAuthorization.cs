@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Internal
+namespace Dnmh.Security.ApiKeyAuthentication.Internal
 {
     /// <summary>
     /// An implementation of <see cref="IPostConfigureOptions{TOptions}"/> used to setup security definition and requirement 

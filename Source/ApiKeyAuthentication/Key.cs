@@ -1,4 +1,16 @@
-﻿namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+﻿/* Unmerged change from project 'ApiKeyAuthentication (net9.0)'
+Before:
+namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+After:
+using Dnmh;
+using Dnmh.Security;
+using Dnmh.Security.ApiKeyAuthentication;
+using Dnmh.Security.ApiKeyAuthentication;
+using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+
+namespace Dnmh.Security.ApiKeyAuthentication;
+*/
+namespace Dnmh.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// A key with a string value and a case in-/sensitive boolean value
@@ -18,7 +30,7 @@ public class Key : IEquatable<Key>
     /// <summary>
     /// <see cref="System.StringComparer"/> based on <see cref="IsCaseSensitive"/>
     /// </summary>
-    public StringComparer StringComparer { get;  }
+    public StringComparer StringComparer { get; }
 
     /// <summary>
     /// Creates a new instance
@@ -33,7 +45,7 @@ public class Key : IEquatable<Key>
         IsCaseSensitive = isCaseSensitive;
         StringComparer = StringComparer.FromComparison(IsCaseSensitive ? StringComparison.Ordinal : StringComparison.OrdinalIgnoreCase);
     }
-    
+
     /// <inheritdoc/>
     public override bool Equals(object? obj) => Equals(obj as Key);
 

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+namespace Dnmh.Security.ApiKeyAuthentication.Context;
 
 /// <summary>
 /// The context associated with failed authentication
@@ -9,7 +9,7 @@ namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 public class AuthenticationFailedContext : ResultContext<ApiKeyAuthenticationOptions>
 {
     /// <summary>
-    /// The optional exception that occured when authentication failed.
+    /// The optional exception that occurred when authentication failed.
     /// </summary>
     public Exception? Exception { get; }
 

@@ -1,10 +1,22 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Internal;
+﻿
+/* Unmerged change from project 'ApiKeyAuthentication (net9.0)'
+Before:
+using Dnmh.Security.ApiKeyAuthentication.Internal;
+After:
+using Dnmh;
+using Dnmh.Security;
+using Dnmh.Security.ApiKeyAuthentication;
+using Dnmh.Security.ApiKeyAuthentication;
+using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+using Dnmh.Security.ApiKeyAuthentication.Internal;
+*/
+using Dnmh.Security.ApiKeyAuthentication.Internal;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Specialized <see cref="AuthenticationBuilder"/> which enables Swagger authorization to be added.

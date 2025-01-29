@@ -1,4 +1,4 @@
-﻿namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+﻿namespace Dnmh.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Exception for when authentication fails.

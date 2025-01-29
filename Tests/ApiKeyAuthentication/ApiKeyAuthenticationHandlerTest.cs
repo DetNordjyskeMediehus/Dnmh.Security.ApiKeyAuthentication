@@ -1,9 +1,8 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
-using FluentAssertions;
+﻿using FluentAssertions;
 using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Tests.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication.Tests;
 public class ApiKeyAuthenticationHandlerTest
 {
     [Fact]

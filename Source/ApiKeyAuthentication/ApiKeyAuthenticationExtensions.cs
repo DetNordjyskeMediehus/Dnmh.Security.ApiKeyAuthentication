@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Extension methods for the <see cref="AuthenticationBuilder"/>

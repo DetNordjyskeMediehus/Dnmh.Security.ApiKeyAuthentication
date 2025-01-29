@@ -1,8 +1,8 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Internal;
+﻿using Dnmh.Security.ApiKeyAuthentication.Internal;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Scheme option for api key authentication.

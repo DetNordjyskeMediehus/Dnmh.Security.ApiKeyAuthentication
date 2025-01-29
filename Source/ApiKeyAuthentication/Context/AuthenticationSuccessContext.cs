@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+namespace Dnmh.Security.ApiKeyAuthentication.Context;
 
 /// <summary>
 /// The context associated with authentication success

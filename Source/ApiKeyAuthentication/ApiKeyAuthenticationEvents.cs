@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+using Dnmh.Security.ApiKeyAuthentication.Context;
 
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+namespace Dnmh.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Api Key authentication events, used by <see cref="ApiKeyAuthenticationHandler"/>.

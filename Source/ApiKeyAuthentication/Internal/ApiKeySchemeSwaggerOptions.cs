@@ -1,4 +1,4 @@
-﻿namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Internal
+﻿namespace Dnmh.Security.ApiKeyAuthentication.Internal
 {
     /// <summary>
     /// Options for <see cref="PostConfigureSwaggerAuthorization"/> when generating the swagger doc.

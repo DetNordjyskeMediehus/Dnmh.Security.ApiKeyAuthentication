@@ -1,5 +1,4 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
-using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+﻿using Dnmh.Security.ApiKeyAuthentication.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
