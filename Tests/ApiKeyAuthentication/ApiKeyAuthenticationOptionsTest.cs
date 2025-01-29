@@ -1,5 +1,5 @@
-using FluentAssertions;
 using FluentValidation;
+using Shouldly;
 
 namespace DNMH.Security.ApiKeyAuthentication.Tests;
 
@@ -86,7 +86,7 @@ public class ApiKeyAuthenticationOptionsTest
         var act = () => options.Validate();
 
         // Assert
-        act.Should().Throw<ValidationException>();
+        act.ShouldThrow<ValidationException>();
     }
 
     [Fact]
@@ -103,7 +103,7 @@ public class ApiKeyAuthenticationOptionsTest
         var act = () => options.Validate();
 
         // Assert
-        act.Should().Throw<ValidationException>();
+        act.ShouldThrow<ValidationException>();
     }
 
     [Fact]
@@ -135,9 +135,9 @@ public class ApiKeyAuthenticationOptionsTest
         var act3 = () => options3.Validate();
 
         // Assert
-        act1.Should().Throw<ValidationException>();
-        act2.Should().Throw<ValidationException>();
-        act3.Should().Throw<ValidationException>();
+        act1.ShouldThrow<ValidationException>();
+        act2.ShouldThrow<ValidationException>();
+        act3.ShouldThrow<ValidationException>();
     }
 
     [Fact]
@@ -155,6 +155,6 @@ public class ApiKeyAuthenticationOptionsTest
         var act = () => options.Validate();
 
         // Assert
-        act.Should().Throw<ValidationException>();
+        act.ShouldThrow<ValidationException>();
     }
 }

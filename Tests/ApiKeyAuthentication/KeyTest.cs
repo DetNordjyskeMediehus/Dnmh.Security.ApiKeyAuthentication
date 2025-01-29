@@ -1,4 +1,4 @@
-﻿using FluentAssertions;
+﻿using Shouldly;
 
 namespace DNMH.Security.ApiKeyAuthentication.Tests;
 
@@ -12,7 +12,7 @@ public class KeyTest
         var key2 = new Key("key", true);
 
         // Act & Assert
-        key1.Should().Be(key2);
+        key1.ShouldBe(key2);
     }
 
     [Fact]
@@ -23,7 +23,7 @@ public class KeyTest
         var key2 = new Key("KEY", true);
 
         // Act & Assert
-        key1.Should().NotBe(key2);
+        key1.ShouldNotBe(key2);
     }
 
     [Fact]
@@ -34,7 +34,7 @@ public class KeyTest
         var key2 = new Key("KEY", false);
 
         // Act & Assert
-        key1.Should().Be(key2);
+        key1.ShouldBe(key2);
     }
 
     [Fact]
@@ -45,7 +45,7 @@ public class KeyTest
         var key2 = new Key("KEY", true);
 
         // Act & Assert
-        key1.Should().Be(key2);
+        key1.ShouldBe(key2);
     }
 
     [Fact]
@@ -60,8 +60,8 @@ public class KeyTest
         var result = set.Add(key2);
 
         // Assert
-        result.Should().BeFalse();
-        set.Should().ContainSingle();
+        result.ShouldBeFalse();
+        set.ShouldHaveSingleItem();
     }
 
     [Fact]
@@ -76,8 +76,9 @@ public class KeyTest
         var result = set.Add(key2);
 
         // Assert
-        result.Should().BeTrue();
-        set.Should().HaveCount(2);
+        result.ShouldBeTrue();
+        set.ShouldContain(key1);
+        set.ShouldContain(key2);
     }
 
     [Fact]
@@ -92,8 +93,8 @@ public class KeyTest
         var result = set.Add(key2);
 
         // Assert
-        result.Should().BeFalse();
-        set.Should().ContainSingle();
+        result.ShouldBeFalse();
+        set.ShouldHaveSingleItem();
     }
 
     [Fact]
@@ -108,7 +109,7 @@ public class KeyTest
         var result = set.Add(key2);
 
         // Assert
-        result.Should().BeFalse();
-        set.Should().ContainSingle();
+        result.ShouldBeFalse();
+        set.ShouldHaveSingleItem();
     }
 }

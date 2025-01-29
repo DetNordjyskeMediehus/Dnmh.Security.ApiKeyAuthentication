@@ -1,6 +1,6 @@
-﻿using FluentAssertions;
-using Microsoft.Extensions.Primitives;
+﻿using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
+using Shouldly;
 
 namespace DNMH.Security.ApiKeyAuthentication.Tests;
 public class ApiKeyAuthenticationHandlerTest
@@ -18,8 +18,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -40,8 +40,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -63,8 +63,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -85,8 +85,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -108,8 +108,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeFalse();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeFalse();
     }
 
     [Fact]
@@ -130,8 +130,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -153,8 +153,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -176,8 +176,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeFalse();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeFalse();
     }
 
     [Fact]
@@ -198,8 +198,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeFalse();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeFalse();
     }
 
     [Fact]
@@ -215,8 +215,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -232,8 +232,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeFalse();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeFalse();
     }
 
     [Fact]
@@ -252,8 +252,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -273,8 +273,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -294,8 +294,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeFalse();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeFalse();
     }
 
     [Fact]
@@ -314,8 +314,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
     [Fact]
@@ -335,8 +335,8 @@ public class ApiKeyAuthenticationHandlerTest
         var result = await handler.AuthenticateAsync();
 
         // Assert
-        result.Should().NotBeNull();
-        result.Succeeded.Should().BeTrue();
+        result.ShouldNotBeNull();
+        result.Succeeded.ShouldBeTrue();
     }
 
 
