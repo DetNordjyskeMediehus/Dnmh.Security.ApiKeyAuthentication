@@ -7,6 +7,8 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Det Nordjyske Mediehus</Company>
+    <AssemblyName>Dnmh.Security.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>Dnmh.Security.$(MSBuildProjectName)</RootNamespace>	  
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/Dnmh.Security.ApiKeyAuthentication</PackageProjectUrl>
@@ -18,7 +20,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include="..\..\README.md">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
