@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Tests;
+namespace DNMH.Security.ApiKeyAuthentication.Tests;
 
 public class KeyTest
 {

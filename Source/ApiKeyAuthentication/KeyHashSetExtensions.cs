@@ -1,4 +1,4 @@
-﻿namespace Dnmh.Security.ApiKeyAuthentication;
+﻿namespace DNMH.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Extension methods for <see cref="ISet{Task}"/> with type <see cref="Key"/>

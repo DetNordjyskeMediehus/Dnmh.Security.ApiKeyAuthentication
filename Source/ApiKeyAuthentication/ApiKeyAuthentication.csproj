@@ -7,13 +7,13 @@
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Det Nordjyske Mediehus</Company>
-    <AssemblyName>Dnmh.Security.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>Dnmh.Security.$(MSBuildProjectName)</RootNamespace>	  
+    <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>	  
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/Dnmh.Security.ApiKeyAuthentication</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/DNMH.Security.ApiKeyAuthentication</PackageProjectUrl>
     <Title>.Net ApiKey Authentication</Title>
-    <Version>9.0.1</Version>
+    <Version>9.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>A .NET Core library that provides API key authentication for your web applications. With this library, you can require API keys to access your API endpoints and secure your application against unauthorized access. The library can also be integrated with Swagger UI to provide a seamless authentication experience.</Description>
     <PackageTags>authentication dotnet .Net dotnetcore .NetCore apikey apikey-authentication swagger swagger-ui</PackageTags>

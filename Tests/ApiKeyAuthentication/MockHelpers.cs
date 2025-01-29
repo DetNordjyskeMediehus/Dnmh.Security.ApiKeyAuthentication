@@ -1,4 +1,4 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.Context;
+﻿using DNMH.Security.ApiKeyAuthentication.Context;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
@@ -7,7 +7,7 @@ using Moq;
 using Moq.Protected;
 using System.Text.Encodings.Web;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Tests;
+namespace DNMH.Security.ApiKeyAuthentication.Tests;
 
 internal static class MockHelpers
 {

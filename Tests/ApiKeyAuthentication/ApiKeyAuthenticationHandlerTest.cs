@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Tests;
+namespace DNMH.Security.ApiKeyAuthentication.Tests;
 public class ApiKeyAuthenticationHandlerTest
 {
     [Fact]

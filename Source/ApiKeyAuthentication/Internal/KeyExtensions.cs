@@ -1,6 +1,6 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.Internal;
+﻿using DNMH.Security.ApiKeyAuthentication.Internal;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Internal;
+namespace DNMH.Security.ApiKeyAuthentication.Internal;
 
 /// <summary>
 /// Extension methods for <see cref="Key"/>

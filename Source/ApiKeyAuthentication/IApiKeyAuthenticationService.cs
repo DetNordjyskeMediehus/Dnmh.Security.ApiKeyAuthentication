@@ -1,7 +1,7 @@
 ﻿using System.Security.Claims;
-using Dnmh.Security.ApiKeyAuthentication.Context;
+using DNMH.Security.ApiKeyAuthentication.Context;
 
-namespace Dnmh.Security.ApiKeyAuthentication;
+namespace DNMH.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Interface for the api key authentication service

@@ -1,16 +1,16 @@
 ﻿/* Unmerged change from project 'ApiKeyAuthentication (net9.0)'
 Before:
-namespace Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+namespace DNMH.Security.ApiKeyAuthentication.AuthenticationHandler;
 After:
 using Dnmh;
-using Dnmh.Security;
-using Dnmh.Security.ApiKeyAuthentication;
-using Dnmh.Security.ApiKeyAuthentication;
-using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
+using DNMH.Security;
+using DNMH.Security.ApiKeyAuthentication;
+using DNMH.Security.ApiKeyAuthentication;
+using DNMH.Security.ApiKeyAuthentication.AuthenticationHandler;
 
-namespace Dnmh.Security.ApiKeyAuthentication;
+namespace DNMH.Security.ApiKeyAuthentication;
 */
-namespace Dnmh.Security.ApiKeyAuthentication;
+namespace DNMH.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// A key with a string value and a case in-/sensitive boolean value

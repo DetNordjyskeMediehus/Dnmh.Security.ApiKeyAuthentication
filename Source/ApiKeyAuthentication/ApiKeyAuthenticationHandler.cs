@@ -1,5 +1,5 @@
-﻿using Dnmh.Security.ApiKeyAuthentication.Context;
-using Dnmh.Security.ApiKeyAuthentication.Internal;
+﻿using DNMH.Security.ApiKeyAuthentication.Context;
+using DNMH.Security.ApiKeyAuthentication.Internal;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -10,7 +10,7 @@ using System.Net.Http.Headers;
 using System.Security.Claims;
 using System.Text.Encodings.Web;
 
-namespace Dnmh.Security.ApiKeyAuthentication;
+namespace DNMH.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// Handles Api Key authentication, by checking the request header and request query parameters for occurrences of the api key (depending on <see cref="ApiKeyAuthenticationOptions"/>)

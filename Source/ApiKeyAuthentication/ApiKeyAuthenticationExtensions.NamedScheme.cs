@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 
-namespace Dnmh.Security.ApiKeyAuthentication;
+namespace DNMH.Security.ApiKeyAuthentication;
 
 public static partial class ApiKeyAuthenticationExtensions
 {

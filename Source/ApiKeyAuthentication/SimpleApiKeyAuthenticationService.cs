@@ -2,18 +2,18 @@
 
 /* Unmerged change from project 'ApiKeyAuthentication (net9.0)'
 Before:
-using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+using DNMH.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 After:
 using Dnmh;
-using Dnmh.Security;
-using Dnmh.Security.ApiKeyAuthentication;
-using Dnmh.Security.ApiKeyAuthentication;
-using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler;
-using Dnmh.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
+using DNMH.Security;
+using DNMH.Security.ApiKeyAuthentication;
+using DNMH.Security.ApiKeyAuthentication;
+using DNMH.Security.ApiKeyAuthentication.AuthenticationHandler;
+using DNMH.Security.ApiKeyAuthentication.AuthenticationHandler.Context;
 */
-using Dnmh.Security.ApiKeyAuthentication.Context;
+using DNMH.Security.ApiKeyAuthentication.Context;
 
-namespace Dnmh.Security.ApiKeyAuthentication;
+namespace DNMH.Security.ApiKeyAuthentication;
 
 /// <summary>
 /// A simple abstract implementation of the <see cref="IApiKeyAuthenticationService"/>, 

@@ -27,5 +27,5 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release
     - name: Release
-      run: dotnet nuget push ./Source/bin/Release/Dnmh.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Source/bin/Release/DNMH.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
       

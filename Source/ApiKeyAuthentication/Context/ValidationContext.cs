@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Context;
+namespace DNMH.Security.ApiKeyAuthentication.Context;
 
 /// <summary>
 /// The context associated with validiting the api key.

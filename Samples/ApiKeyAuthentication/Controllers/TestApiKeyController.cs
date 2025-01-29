@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Dnmh.Security.ApiKeyAuthentication.Sample.Controllers;
+namespace DNMH.Security.ApiKeyAuthentication.Sample.Controllers;
 
 [ApiController]
 [Route("[controller]")]

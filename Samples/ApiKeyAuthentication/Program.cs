@@ -1,4 +1,4 @@
-﻿using Dnmh.Security.ApiKeyAuthentication;
+﻿using DNMH.Security.ApiKeyAuthentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
