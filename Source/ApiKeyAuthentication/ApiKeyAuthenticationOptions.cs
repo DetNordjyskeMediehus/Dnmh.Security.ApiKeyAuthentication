@@ -1,5 +1,4 @@
 ﻿using DNMH.Security.ApiKeyAuthentication.Internal;
-using FluentValidation;
 using Microsoft.AspNetCore.Authentication;
 
 namespace DNMH.Security.ApiKeyAuthentication;
