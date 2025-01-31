@@ -8,16 +8,24 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Det Nordjyske Mediehus</Company>
     <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>	  
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/DNMH.Security.ApiKeyAuthentication</PackageProjectUrl>
-    <Title>.Net ApiKey Authentication</Title>
+    <Title>Swagger Extensions for .Net ApiKey Authentication</Title>
     <Version>9.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Description>A .NET library that provides API key authentication for your web applications. With this library, you can require API keys to access your API endpoints and secure your application against unauthorized access.</Description>
-    <PackageTags>authentication dotnet .Net dotnetcore .NetCore apikey apikey-authentication openapi</PackageTags>
+    <Description>A .NET library that provides extension methods for adding Swagger and Swagger UI to API key authentication.</Description>
+    <PackageTags>authentication dotnet .Net dotnetcore .NetCore apikey apikey-authentication swagger swagger-ui</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApiKeyAuthentication\ApiKeyAuthentication.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="README.md">
@@ -26,13 +34,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
-
-  <ItemGroup>
-	<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
-    </AssemblyAttribute>
-  </ItemGroup>
 </Project>

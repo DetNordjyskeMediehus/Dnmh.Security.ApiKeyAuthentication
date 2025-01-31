@@ -1,22 +1,23 @@
-﻿using DNMH.Security.ApiKeyAuthentication;
+using DNMH.Security.ApiKeyAuthentication;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Add services to the container.
+
 builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
 
 // Adds the default authentication scheme named "ApiKey". This is activated on a controller by using the [Authorize] attribute.
 builder.Services.AddAuthentication("ApiKey")
-    .AddApiKeyAuthentication(sp => builder.Configuration.GetRequiredSection("MyApiKey").Value!)
-    .AddSwaggerAuthorization("Please add a valid api key (the valid api key is found in appsettings.json 🤫)");
+    .AddApiKeyAuthentication(sp => builder.Configuration.GetRequiredSection("MyApiKey").Value!);
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();

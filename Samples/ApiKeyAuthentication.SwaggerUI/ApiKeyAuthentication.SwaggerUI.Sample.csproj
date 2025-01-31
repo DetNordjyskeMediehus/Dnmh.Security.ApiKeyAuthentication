@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\ApiKeyAuthentication.SwaggerUI\ApiKeyAuthentication.SwaggerUI.csproj" />
+  </ItemGroup>
+
+</Project>

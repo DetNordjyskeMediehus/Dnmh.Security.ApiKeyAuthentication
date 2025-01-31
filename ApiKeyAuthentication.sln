@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiKeyAuthentication", "Sou
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiKeyAuthentication.Tests", "Tests\ApiKeyAuthentication\ApiKeyAuthentication.Tests.csproj", "{DFEF603C-60C8-41B7-A3D5-0B470800A4C5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiKeyAuthentication.Sample", "Samples\ApiKeyAuthentication\ApiKeyAuthentication.Sample.csproj", "{4D31192C-0339-43C1-B174-DC9B1E4535A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiKeyAuthentication.SwaggerUI.Sample", "Samples\ApiKeyAuthentication.SwaggerUI\ApiKeyAuthentication.SwaggerUI.Sample.csproj", "{4D31192C-0339-43C1-B174-DC9B1E4535A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{F7255BAF-8084-453D-8BAF-950A2081361C}"
 EndProject
@@ -28,6 +28,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{
 		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiKeyAuthentication.SwaggerUI", "Source\ApiKeyAuthentication.SwaggerUI\ApiKeyAuthentication.SwaggerUI.csproj", "{BB0B6B2B-F58C-414F-8F27-BE6BE343C383}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiKeyAuthentication.OpenAPI.Sample", "Samples\ApiKeyAuthentication.OpenAPI\ApiKeyAuthentication.OpenAPI.Sample.csproj", "{28EFA279-1B54-4948-956E-13385E3D133D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,6 +50,14 @@ Global
 		{4D31192C-0339-43C1-B174-DC9B1E4535A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D31192C-0339-43C1-B174-DC9B1E4535A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D31192C-0339-43C1-B174-DC9B1E4535A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB0B6B2B-F58C-414F-8F27-BE6BE343C383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB0B6B2B-F58C-414F-8F27-BE6BE343C383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB0B6B2B-F58C-414F-8F27-BE6BE343C383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB0B6B2B-F58C-414F-8F27-BE6BE343C383}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28EFA279-1B54-4948-956E-13385E3D133D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28EFA279-1B54-4948-956E-13385E3D133D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28EFA279-1B54-4948-956E-13385E3D133D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28EFA279-1B54-4948-956E-13385E3D133D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +66,8 @@ Global
 		{D351F140-C932-4E94-93BA-223EDD531E30} = {F7255BAF-8084-453D-8BAF-950A2081361C}
 		{DFEF603C-60C8-41B7-A3D5-0B470800A4C5} = {1536AED4-4E33-4971-AB58-644266AC1CB3}
 		{4D31192C-0339-43C1-B174-DC9B1E4535A0} = {81B9DF25-F242-43BE-90AF-FFF1C770E353}
+		{BB0B6B2B-F58C-414F-8F27-BE6BE343C383} = {F7255BAF-8084-453D-8BAF-950A2081361C}
+		{28EFA279-1B54-4948-956E-13385E3D133D} = {81B9DF25-F242-43BE-90AF-FFF1C770E353}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {52B2D6E8-9F84-4B81-8B6E-88D1668B3BDB}
