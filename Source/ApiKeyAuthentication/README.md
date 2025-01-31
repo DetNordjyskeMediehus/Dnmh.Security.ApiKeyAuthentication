@@ -2,7 +2,7 @@
 
 ## Overview
 
-`DNMH.Security.ApiKeyAuthentication` is a .NET  library that provides API key authentication for your web applications.
+`DNMH.Security.ApiKeyAuthentication` is a .NET library that provides API key authentication for your web applications.
   
 ## Installation
 
