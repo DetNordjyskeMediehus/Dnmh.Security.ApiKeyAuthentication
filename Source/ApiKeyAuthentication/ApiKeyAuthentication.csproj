@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Company>Det Nordjyske Mediehus</Company>
+    <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>	  
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/DNMH.Security.ApiKeyAuthentication</PackageProjectUrl>
+    <Title>.Net ApiKey Authentication</Title>
+    <Version>9.1.0</Version>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Description>A .NET Core library that provides API key authentication for your web applications. With this library, you can require API keys to access your API endpoints and secure your application against unauthorized access. The library can also be integrated with Swagger UI to provide a seamless authentication experience.</Description>
+    <PackageTags>authentication dotnet .Net dotnetcore .NetCore apikey apikey-authentication swagger swagger-ui</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.11.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+	  <_Parameter1>$(AssemblyName).Tests</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+</Project>
