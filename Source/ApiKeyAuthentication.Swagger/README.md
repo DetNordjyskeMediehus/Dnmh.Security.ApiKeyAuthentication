@@ -2,14 +2,14 @@
 
 ## Overview
 
-`DNMH.Security.ApiKeyAuthentication.SwaggerUI` is a .NET library that provides API key authentication for your web applications, including a Swagger UI.
+`DNMH.Security.ApiKeyAuthentication.Swagger` is a .NET library that provides API key authentication for your web applications, including a Swagger and Swagger UI.
 
 ## Installation
 
 You can install this library using NuGet. Simply run the following command:
 
 ```bash
-dotnet add package DNMH.Security.ApiKeyAuthentication.SwaggerUI
+dotnet add package DNMH.Security.ApiKeyAuthentication.Swagger
 ```
 
 ## Usage

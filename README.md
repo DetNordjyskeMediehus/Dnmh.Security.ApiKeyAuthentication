@@ -20,7 +20,7 @@ which will add API key authentication to your .NET Core application.
 Or:
 
 ```bash
-dotnet add package DNMH.Security.ApiKeyAuthentication.SwaggerUI
+dotnet add package DNMH.Security.ApiKeyAuthentication.Swagger
 ```
 
 which will add API key authentication to your .NET Core application and a Swagger UI.
@@ -30,7 +30,7 @@ which will add API key authentication to your .NET Core application and a Swagge
 Each library has its own usage instructions:
 
  - See the [README.md](Source/ApiKeyAuthentication/README.md) for `ApiKeyAuthentication`.
- - See the [README.md](Source/ApiKeyAuthentication.SwaggerUI/README.md) for `ApiKeyAuthentication.SwaggerUI`.
+ - See the [README.md](Source/ApiKeyAuthentication.Swagger/README.md) for `ApiKeyAuthentication.Swagger`.
 
 ## License
 

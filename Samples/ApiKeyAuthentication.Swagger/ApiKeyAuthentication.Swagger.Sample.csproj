@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Source\ApiKeyAuthentication.SwaggerUI\ApiKeyAuthentication.SwaggerUI.csproj" />
+    <ProjectReference Include="..\..\Source\ApiKeyAuthentication.Swagger\ApiKeyAuthentication.Swagger.csproj" />
   </ItemGroup>
 
 </Project>
