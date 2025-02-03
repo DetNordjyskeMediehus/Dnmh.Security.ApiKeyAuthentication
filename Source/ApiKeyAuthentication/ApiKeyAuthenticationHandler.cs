@@ -31,11 +31,11 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
     }
 
     /// <inheritdoc/>
-    protected override Task InitializeHandlerAsync()
+    protected override async Task InitializeHandlerAsync()
     {
+        await base.InitializeHandlerAsync();
         Options.Validate();
         Options.InitializeDefaultValues();
-        return base.InitializeHandlerAsync();
     }
 
     /// <inheritdoc/>

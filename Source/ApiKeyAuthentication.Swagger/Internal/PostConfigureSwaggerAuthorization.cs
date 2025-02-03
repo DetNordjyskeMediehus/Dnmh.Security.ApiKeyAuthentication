@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace DNMH.Security.ApiKeyAuthentication.Internal
+namespace DNMH.Security.ApiKeyAuthentication.Swagger.Internal
 {
     /// <summary>
     /// An implementation of <see cref="IPostConfigureOptions{TOptions}"/> used to setup security definition and requirement 
@@ -23,7 +23,11 @@ namespace DNMH.Security.ApiKeyAuthentication.Internal
         public void PostConfigure(string? name, SwaggerGenOptions options)
         {
             var parameterLocation = _authenticationOptions.AllowApiKeyInQuery ? ParameterLocation.Query : ParameterLocation.Header;
-            var keyName = parameterLocation == ParameterLocation.Query ? _authenticationOptions.QueryKeys.First().Name : _authenticationOptions.HeaderKeys.First().Name;
+            var keyName = parameterLocation == ParameterLocation.Query ? _authenticationOptions.QueryKeys.FirstOrDefault()?.Name : _authenticationOptions.HeaderKeys.FirstOrDefault()?.Name;
+            if (string.IsNullOrEmpty(keyName))
+            {
+                return;
+            }
             var scheme = _authenticationOptions.UseSchemeNameInAuthorizationHeader ? _swaggerSchemeOptions.AuthenticationScheme : _authenticationOptions.AuthorizationSchemeInHeader;
             // Setup the security definition
             options.AddSecurityDefinition(keyName, new OpenApiSecurityScheme
