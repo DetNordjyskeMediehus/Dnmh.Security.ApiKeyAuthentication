@@ -16,7 +16,7 @@
     <Version>9.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>A .NET library that provides extension methods for adding Swagger and Swagger UI to API key authentication.</Description>
-    <PackageTags>authentication dotnet .Net dotnetcore .NetCore apikey apikey-authentication swagger swagger-ui</PackageTags>
+    <PackageTags>authentication;dotnet;.NET;dotnetcore;.NET Core;apikey;apikey authentication;swagger;swagger ui</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
