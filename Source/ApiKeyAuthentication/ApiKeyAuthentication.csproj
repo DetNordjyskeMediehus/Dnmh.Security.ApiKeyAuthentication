@@ -16,7 +16,7 @@
     <Version>9.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>A .NET library that provides API key authentication for your web applications. With this library, you can require API keys to access your API endpoints and secure your application against unauthorized access.</Description>
-    <PackageTags>authentication dotnet .Net dotnetcore .NetCore apikey apikey-authentication openapi</PackageTags>
+    <PackageTags>authentication;dotnet;.NET;dotnetcore;.NET Core;apikey;apikey authentication;openapi</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
