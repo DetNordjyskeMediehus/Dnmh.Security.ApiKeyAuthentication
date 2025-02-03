@@ -24,8 +24,6 @@ jobs:
       run: dotnet build --configuration Release --no-restore
     - name: Test
       run: dotnet test --configuration Release --no-build --verbosity normal
-    - name: Pack
-      run: dotnet pack --configuration Release
     - name: Release
-      run: dotnet nuget push ./Source/bin/Release/DNMH.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./Source/**/bin/Release/DNMH.Security.ApiKeyAuthentication.*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json
       
