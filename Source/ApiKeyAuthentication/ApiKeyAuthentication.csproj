@@ -8,7 +8,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Det Nordjyske Mediehus</Company>
     <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>	  
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/DNMH.Security.ApiKeyAuthentication</PackageProjectUrl>
@@ -31,8 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
       <_Parameter1>$(AssemblyName).Tests</_Parameter1>
     </AssemblyAttribute>
   </ItemGroup>
+  
 </Project>
