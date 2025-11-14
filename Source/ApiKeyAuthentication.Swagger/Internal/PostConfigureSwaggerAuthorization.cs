@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace DNMH.Security.ApiKeyAuthentication.Swagger.Internal
@@ -23,35 +23,40 @@ namespace DNMH.Security.ApiKeyAuthentication.Swagger.Internal
         public void PostConfigure(string? name, SwaggerGenOptions options)
         {
             var parameterLocation = _authenticationOptions.AllowApiKeyInQuery ? ParameterLocation.Query : ParameterLocation.Header;
-            var keyName = parameterLocation == ParameterLocation.Query ? _authenticationOptions.QueryKeys.FirstOrDefault()?.Name : _authenticationOptions.HeaderKeys.FirstOrDefault()?.Name;
+            var keyName = parameterLocation switch
+            {
+                ParameterLocation.Query => _authenticationOptions.QueryKeys.FirstOrDefault()?.Name ?? ApiKeyAuthenticationOptions.DefaultQueryKey.Name,
+                ParameterLocation.Header => _authenticationOptions.HeaderKeys.FirstOrDefault()?.Name ?? ApiKeyAuthenticationOptions.DefaultHeaderKey.Name,
+                _ => null
+            };
             if (string.IsNullOrEmpty(keyName))
             {
                 return;
             }
             var scheme = _authenticationOptions.UseSchemeNameInAuthorizationHeader ? _swaggerSchemeOptions.AuthenticationScheme : _authenticationOptions.AuthorizationSchemeInHeader;
-            // Setup the security definition
-            options.AddSecurityDefinition(keyName, new OpenApiSecurityScheme
+            // Define the security scheme
+            var securityScheme = new OpenApiSecurityScheme
             {
                 In = parameterLocation,
                 Description = _swaggerSchemeOptions.SwaggerDescription,
                 Name = keyName,
                 Type = SecuritySchemeType.ApiKey,
                 Scheme = scheme
-            });
-            // Setup the security requirement
-            options.AddSecurityRequirement(new OpenApiSecurityRequirement
+            };
+            // Register the security definition
+            options.AddSecurityDefinition(keyName, securityScheme);
+            // Register the security requirement
+            options.AddSecurityRequirement(document =>
             {
+                // Define the security scheme reference
+                var securitySchemeReference = new OpenApiSecuritySchemeReference(keyName, document);
+
+                // Define the security requirement
+                var requirement = new OpenApiSecurityRequirement
                 {
-                    new OpenApiSecurityScheme
-                    {
-                        Reference = new OpenApiReference
-                        {
-                            Type = ReferenceType.SecurityScheme,
-                            Id = keyName
-                        },
-                    },
-                    Array.Empty<string>()
-                }
+                    { securitySchemeReference, [] }
+                };
+                return requirement;
             });
         }
     }

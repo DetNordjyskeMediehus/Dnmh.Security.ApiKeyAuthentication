@@ -1,0 +1,25 @@
+<Project>
+  <PropertyGroup Label="Version settings">
+    <AspNetCoreMajorVersion>10</AspNetCoreMajorVersion>
+    <AspNetCoreMinorVersion>0</AspNetCoreMinorVersion>
+    <AspNetCorePatchVersion>0</AspNetCorePatchVersion>
+    <Version>$(AspNetCoreMajorVersion).$(AspNetCoreMinorVersion).$(AspNetCorePatchVersion)</Version>
+    <DefaultNetCoreTargetFramework>net10.0</DefaultNetCoreTargetFramework>
+    <DefaultPackageTargetFrameworks>net8.0;net9.0;$(DefaultNetCoreTargetFramework)</DefaultPackageTargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Repository">
+    <DefaultRepositoryUrl>https://github.com/DetNordjyskeMediehus/Dnmh.Security.ApiKeyAuthentication</DefaultRepositoryUrl>
+    <RepositoryUrl>$(DefaultRepositoryUrl)</RepositoryUrl>
+    <PackageProjectUrl>$(DefaultRepositoryUrl)</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+
+  <PropertyGroup Label="Meta Data">
+    <Authors>Det Nordjyske Mediehus</Authors>
+    <Company>Det Nordjyske Mediehus</Company>
+    <Product>Skaga</Product>
+    <Copyright>© Det Nordjyske Mediehus. All rights reserved.</Copyright>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+</Project>

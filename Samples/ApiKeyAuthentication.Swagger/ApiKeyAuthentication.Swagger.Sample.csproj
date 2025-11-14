@@ -3,13 +3,13 @@
   <PropertyGroup>
     <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>

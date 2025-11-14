@@ -1,29 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>$(DefaultPackageTargetFrameworks)</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Company>Det Nordjyske Mediehus</Company>
     <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
-    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>	  
-    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/DNMH.Security.ApiKeyAuthentication</PackageProjectUrl>
+    <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
     <Title>.NET ApiKey Authentication</Title>
-    <Version>9.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <Description>A .NET library that provides API key authentication for your web applications. With this library, you can require API keys to access your API endpoints and secure your application against unauthorized access.</Description>
     <PackageTags>authentication;dotnet;.NET;dotnetcore;.NET Core;apikey;apikey authentication;openapi</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Include="README.md" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,8 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-	<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-      <_Parameter1>$(AssemblyName).Tests</_Parameter1>
-    </AssemblyAttribute>
+    <InternalsVisibleTo Include="$(AssemblyName).Tests" />
   </ItemGroup>
+  
 </Project>
