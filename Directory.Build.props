@@ -18,7 +18,6 @@
   <PropertyGroup Label="Meta Data">
     <Authors>Det Nordjyske Mediehus</Authors>
     <Company>Det Nordjyske Mediehus</Company>
-    <Product>Skaga</Product>
     <Copyright>© Det Nordjyske Mediehus. All rights reserved.</Copyright>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
