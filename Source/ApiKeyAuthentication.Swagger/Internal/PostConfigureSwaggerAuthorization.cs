@@ -34,29 +34,26 @@ namespace DNMH.Security.ApiKeyAuthentication.Swagger.Internal
                 return;
             }
             var scheme = _authenticationOptions.UseSchemeNameInAuthorizationHeader ? _swaggerSchemeOptions.AuthenticationScheme : _authenticationOptions.AuthorizationSchemeInHeader;
-            // Define the security scheme
-            var securityScheme = new OpenApiSecurityScheme
+            // Setup the security definition
+            options.AddSecurityDefinition(keyName, new OpenApiSecurityScheme
             {
                 In = parameterLocation,
                 Description = _swaggerSchemeOptions.SwaggerDescription,
                 Name = keyName,
                 Type = SecuritySchemeType.ApiKey,
                 Scheme = scheme
-            };
-            // Register the security definition
-            options.AddSecurityDefinition(keyName, securityScheme);
-            // Register the security requirement
+            });
+            // Setup the security requirement
             options.AddSecurityRequirement(document =>
             {
                 // Define the security scheme reference
                 var securitySchemeReference = new OpenApiSecuritySchemeReference(keyName, document);
 
                 // Define the security requirement
-                var requirement = new OpenApiSecurityRequirement
+                return new OpenApiSecurityRequirement
                 {
                     { securitySchemeReference, [] }
                 };
-                return requirement;
             });
         }
     }
