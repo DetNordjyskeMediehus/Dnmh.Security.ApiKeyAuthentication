@@ -11,6 +11,7 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <Title>Swagger Extensions for .NET ApiKey Authentication</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>package-icon.png</PackageIcon>
     <Description>A .NET library that provides extension methods for adding Swagger and Swagger UI to API key authentication.</Description>
     <PackageTags>authentication;dotnet;.NET;dotnetcore;.NET Core;apikey;apikey authentication;swagger;swagger ui</PackageTags>
   </PropertyGroup>
@@ -25,6 +26,7 @@
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../Assets/package-icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>

@@ -10,12 +10,14 @@
     <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
     <Title>.NET ApiKey Authentication</Title>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>package-icon.png</PackageIcon>
     <Description>A .NET library that provides API key authentication for your web applications. With this library, you can require API keys to access your API endpoints and secure your application against unauthorized access.</Description>
     <PackageTags>authentication;dotnet;.NET;dotnetcore;.NET Core;apikey;apikey authentication;openapi</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../Assets/package-icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
   <ItemGroup>
