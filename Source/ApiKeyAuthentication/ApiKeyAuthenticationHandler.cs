@@ -145,7 +145,12 @@ public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthentic
                 return false;
             }
 
-            headerValues = request.Headers.Where(x => validKeys.Contains(x.Key)).SelectMany(x => x.Value).Where(x => x != null).Select(x => x!);
+            headerValues = request.Headers
+                .Where(x => validKeys.Contains(x.Key))
+                .SelectMany(x => x.Value)
+                .Where(x => x != null)
+                .Select(x => x!)
+                .ToList();
         }
 
         return true;

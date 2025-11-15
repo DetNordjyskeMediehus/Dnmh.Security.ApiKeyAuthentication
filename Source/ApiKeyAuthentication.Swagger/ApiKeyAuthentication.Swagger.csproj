@@ -1,26 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
+    <TargetFrameworks>$(DefaultPackageTargetFrameworks)</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Company>Det Nordjyske Mediehus</Company>
     <AssemblyName>DNMH.Security.$(MSBuildProjectName)</AssemblyName>
     <RootNamespace>DNMH.Security.$(MSBuildProjectName)</RootNamespace>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/DetNordjyskeMediehus/DNMH.Security.ApiKeyAuthentication</PackageProjectUrl>
     <Title>Swagger Extensions for .NET ApiKey Authentication</Title>
-    <Version>9.1.0</Version>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>package-icon.png</PackageIcon>
     <Description>A .NET library that provides extension methods for adding Swagger and Swagger UI to API key authentication.</Description>
     <PackageTags>authentication;dotnet;.NET;dotnetcore;.NET Core;apikey;apikey authentication;swagger;swagger ui</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.2.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -28,10 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
+    <None Include="README.md" Pack="true" PackagePath="/" />
+    <None Include="../../Assets/package-icon.png" Pack="true" PackagePath="/" />
   </ItemGroup>
 
 </Project>
