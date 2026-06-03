@@ -1,5 +1,9 @@
 # DNMH.Security.ApiKeyAuthentication
 
+[![Build](https://github.com/DetNordjyskeMediehus/Dnmh.Security.ApiKeyAuthentication/actions/workflows/build.yml/badge.svg)](https://github.com/DetNordjyskeMediehus/Dnmh.Security.ApiKeyAuthentication/actions/workflows/build.yml)
+[![Nuget](https://img.shields.io/nuget/v/Dnmh.Security.ApiKeyAuthentication?label=NuGet)](https://www.nuget.org/packages/Dnmh.Security.ApiKeyAuthentication)
+[![Nuget](https://img.shields.io/nuget/dt/Dnmh.Security.ApiKeyAuthentication?label=Downloads)](https://www.nuget.org/packages/Dnmh.Security.ApiKeyAuthentication)
+
 ## Overview
 
 This project contains two libraries that provide API key authentication for your web applications:
